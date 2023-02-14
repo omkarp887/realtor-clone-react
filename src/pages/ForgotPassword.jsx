@@ -21,8 +21,8 @@ export default function ForgotPassword() {
             className="w-full rounded-2xl"
           />
         </div>
-        <div>
-          <form className="w-full md:w-[67%] lg:w-[40%] lg:ml-20">
+        <div className="w-full md:w-[67%] lg:w-[40%] lg:ml-20">
+          <form >
             <input 
             type='email' 
             id='email' 
