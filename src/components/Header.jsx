@@ -16,8 +16,9 @@ export default function Header() {
             <div>
             <img
             src="https://static.rdc.moveaws.com/images/logos/rdc-logo-default.svg"
-            alt="logo"
-            className="h-5 cursor-pointer" onClick={()=>navigate("/")}/>
+            alt="logo" className="h-5 cursor-pointer" 
+            onClick={()=>navigate("/")}
+            />
             </div>
             <div>
                 <ul className="flex space-x-10">
