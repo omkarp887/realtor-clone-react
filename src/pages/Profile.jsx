@@ -1,13 +1,7 @@
 import React, { useState } from 'react';
 import {
-  collection,
-  deleteDoc,
   doc,
-  getDocs,
-  orderBy,
-  query,
   updateDoc,
-  where,
 } from "firebase/firestore";
 import {getAuth, updateProfile} from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
