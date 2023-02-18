@@ -1,43 +1,39 @@
-import { collection, getDoc, getDocs, limit, orderBy, query, where,} from "firebase/firestore";
-import { useEffect } from "react";
-import { useState } from "react";
+
+import { collection, doc, getDocs, limit, orderBy, query, where } from "firebase/firestore";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ListingItem from "../components/ListingItem";
 import Slider from "../components/Slider";
 import { db } from "../firebase";
 
+
 export default function Home() {
-  // Offers
   const [offerListings, setOfferListings] = useState(null);
-  useEffect(() => {
+  useEffect(()=>{
     async function fetchListings() {
       try {
         // get reference
         const listingsRef = collection(db, "listings");
-        // create the query
-        const q = query(
-          listingsRef,
-          where("offer", "==", true),
-          orderBy("timestamp", "desc"),
-          limit(4)
-        );
-        // execute the query
-        const querySnap = await getDocs(q);
+        const q = query(listingsRef, where("offer","==", true), orderBy("timestamp", "desc"), limit(4));
+        //execute the query
+        const querySnap = await getDocs(q)
         const listings = [];
-        querySnap.forEach((doc) => {
+        querySnap.forEach((doc)=>{
           return listings.push({
             id: doc.id,
             data: doc.data(),
           });
         });
-        setOfferListings(listings);
+        setOfferListings(listings)
+        // console.log(listings);
       } catch (error) {
         console.log(error);
       }
     }
     fetchListings();
-  }, []);
-  // Places for rent
+  },[]);
+
+    // Places for rent
   const [rentListings, setRentListings] = useState(null);
   useEffect(() => {
     async function fetchListings() {
@@ -67,7 +63,8 @@ export default function Home() {
     }
     fetchListings();
   }, []);
-  // Places for rent
+
+    // Places for rent
   const [saleListings, setSaleListings] = useState(null);
   useEffect(() => {
     async function fetchListings() {
@@ -103,7 +100,7 @@ export default function Home() {
       <div className="max-w-6xl mx-auto pt-4 space-y-6">
         {offerListings && offerListings.length > 0 && (
           <div className="m-2 mb-6">
-            <h2 className="px-3 text-2xl mt-6 font-semibold">Recent offers</h2>
+            <h2 className="px-3 text-2xl mt-6 font-semibold">Recent Offers</h2>
             <Link to="/offers">
               <p className="px-3 text-sm text-blue-600 hover:text-blue-800 transition duration-150 ease-in-out">
                 Show more offers

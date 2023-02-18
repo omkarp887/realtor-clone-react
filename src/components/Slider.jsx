@@ -12,11 +12,13 @@ import SwiperCore, {
 } from "swiper";
 import "swiper/css/bundle";
 import { useNavigate } from "react-router-dom";
+
 export default function Slider() {
   const [listings, setListings] = useState(null);
   const [loading, setLoading] = useState(true);
   SwiperCore.use([Autoplay, Navigation, Pagination]);
   const navigate = useNavigate();
+  
   useEffect(() => {
     async function fetchListings() {
       const listingsRef = collection(db, "listings");
