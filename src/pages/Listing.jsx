@@ -22,7 +22,7 @@ import {
 } from "react-icons/fa";
 import { getAuth } from "firebase/auth";
 import Contact from "../components/Contact";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+// import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 // import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 
 export default function Listing() {
